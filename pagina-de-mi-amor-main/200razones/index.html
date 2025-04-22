@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>200 Razones para Amarte</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+ 
+      <script>
+        const music = document.getElementById("bg-music");
+      
+        // Espera a que el usuario haga clic en cualquier parte
+        document.addEventListener("click", () => {
+          music.muted = false;
+          music.play();
+        });
+      </script>
+
+<div class="hearts-container" id="hearts-container"></div>
+            
+
+  <h1>200 Razones para Amarte</h1>
+  <div class="counter">Razón <span id="reason-count">1</span> de 60</div>
+  
+  <div class="container" id="cards-container">
+    <!-- Tarjeta actual aparecerá aquí -->
+  </div>
+  
+  <button id="next-btn">Siguiente Razón</button>
+
+  <script src="reasons.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

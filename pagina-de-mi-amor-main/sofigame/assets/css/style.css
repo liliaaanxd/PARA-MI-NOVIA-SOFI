@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Pantalla de inicio */
+@keyframes animatedBlueBackground {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.start-screen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-45deg, #a1c4fd, #c2e9fb, #6699cc, #003366);
+  background-size: 400% 400%;
+  animation: animatedBlueBackground 12s ease infinite;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  padding: 20px;
+  text-align: center;
+}
+
+
+
+.game-title {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #0920f5;
+}
+
+.start-btn {
+  font-size: 1.2em;
+  padding: 12px 25px;
+  background-color: #0400ff;
+  color: white;
+  border: none;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.start-btn:hover {
+  background-color: #1832c2;
+}
+
+/* Contenedor principal del juego */
+.game-container {
+  width: 100%;
+  height: 100dvh;
+  position: relative;
+  background-image: url('../img/nubes.png'); /* Reemplaza 'clouds-background.jpg' con tu imagen de fondo */
+  background-size: cover;
+}
+
+/* Barra superior con score y fallos */
+.top-bar {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  gap: 40px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(0,0,0,0.5);
+  padding: 10px 25px;
+  border-radius: 15px;
+}
+
+/* Jugador */
+.player {
+  width: 100px;
+  height: 100px;
+  background-image:url('../img/sofi.png');
+  background-size: cover;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Obstáculos */
+.obstacle {
+  width: 100px;
+  height: 100px;
+  background-image:url('../img/lilian.png');
+  background-size: cover; 
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Disparos */
+.bullet {
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  background-color: #ffeb3b;
+}
+
+/* Botón de reinicio */
+.restart-btn {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  font-size: 1em;
+  background-color: #0400ff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  display: none;
+  z-index: 5;
+}
+
+.restart-btn:hover {
+  background-color: #1832c2;
+}
+
+  
+  

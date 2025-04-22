@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Para mi amorcito</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+            color: #333;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #ff9999;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff6666;
+        }
+        #mensaje {
+            margin-top: 20px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hola, amor!</h1>
+    <p>Te hice este pequeño juego porque eres lo más especial para mí.</p>
+    <button onclick="siguientePaso()">¡Empecemos!</button>
+    <div id="mensaje"></div>
+
+    <script>
+        let paso = 0;
+        const mensajes = [
+            "¿Sabías que tu sonrisa es mi cosa favorita en el mundo?",
+            "Quiero que sepas que siempre estaré aquí para vos, mi amor.",
+            "¡Sorpresa final! Te amo más de lo que las palabras pueden decir. ¿Me das un abrazo cuando nos veamos?"
+        ];
+
+        function siguientePaso() {
+            if (paso < mensajes.length) {
+                document.getElementById("mensaje").innerHTML = mensajes[paso];
+                paso++;
+            }
+            if (paso === mensajes.length) {
+                document.getElementById("mensaje").innerHTML += "<br><button onclick='reiniciar()'>Volver a jugar</button>";
+            }
+        }
+
+        function reiniciar() {
+            paso = 0;
+            document.getElementById("mensaje").innerHTML = "";
+            siguientePaso();
+        }
+    </script>
+</body>
+</html>
