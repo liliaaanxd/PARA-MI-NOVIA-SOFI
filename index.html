@@ -1,130 +1,206 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>para Mi Novia Sofi<3</title>
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            text-align: center;
-            margin: 20px;
-            background-color: #fce4ec; /* Color rosa suave, puedes cambiarlo */
-        }
-        h1 {
-            color: #880e4f; /* Color rosa oscuro, puedes cambiarlo */
-        }
-        button {
-            padding: 10px 20px;
-            font-size: 16px;
-            margin: 10px;
-            cursor: pointer;
-            background-color: #ffcccb; /* Color rosa claro, puedes cambiarlo */
-            border: none;
-            border-radius: 5px;
-        }
-        #mensaje {
-            font-size: 20px;
-            margin-top: 20px;
-        }
-        img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
-        .pulse-animation {
-            animation: pulse 2s infinite;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Para Mi Novia Sofi &lt;3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+        font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+      background: #fce4ec;
+      color: #4a4a4a;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      color: #c2185b;
+      margin-bottom: 30px;
+      font-size: 2.5em;
+    }
+
+    button {
+      padding: 12px 25px;
+      font-size: 16px;
+      margin: 10px;
+      cursor: pointer;
+      background-color: #f8bbd0;
+      color: #880e4f;
+      border: none;
+      border-radius: 8px;
+      transition: background-color 0.3s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    button:hover {
+      background-color: #f48fb1;
+    }
+
+    #mensaje {
+      font-size: 20px;
+      margin-top: 20px;
+      font-weight: bold;
+      position: relative;
+      z-index: 2;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      margin-top: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    iframe, embed {
+      border-radius: 12px;
+      margin: 30px 0;
+      position: relative;
+      z-index: 2;
+    }
+
+    .pulse-animation {
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .mensaje-personal {
+        font-family: 'Quicksand', sans-serif;
+      font-size: 24px;
+      max-width: 800px;
+      margin: 30px auto;
+      line-height: 1.8;
+      text-align: justify;
+      background-color: #fff0f5;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 2;
+    }
+
+    audio {
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Fondo con flores animadas */
+    .flower-petals {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .petal {
+      position: absolute;
+      font-size: 24px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  
-	<audio controls>
-		
-		<source src="pagina-de-mi-amor-main/musica_amor.mp3" type"audio/mpeg">
-		
-	</audio>
- 
- 
- 
- 
-    
-    <h1>para Mi Novia Sofi<3</h1>
 
-    <button onclick="mostrarMensaje('Eres mi felicidad de cada día')">para ti <3</button>
-    <button onclick="mostrarMensaje('Cada momento contigo es especial')">presionalo <3</button>
-    <button onclick="mostrarMensaje('Gracias por hacer mi vida más hermosa, de felicidad y de amor')">te amo <3</button>
+  <!-- Fondo animado de pétalos de flores -->
+  <div class="flower-petals" id="petals-container"></div>
 
-    <div id="mensaje"></div>
+  <audio controls>
+    <source src="pagina-de-mi-amor-main/musica_amor.mp3" type="audio/mpeg">
+    Tu navegador no soporta el elemento de audio.
+  </audio>
 
-    <img id="imagen" src="corazon.png" alt="te amo" class="pulse-animation">
+  <h1>Para Mi Novia Sofi &lt;3</h1>
 
-<center> 
+  <button onclick="mostrarMensaje('Eres mi felicidad de cada día')">para ti &lt;3</button>
+  <button onclick="mostrarMensaje('Cada momento contigo es especial')">presionalo &lt;3</button>
+  <button onclick="mostrarMensaje('Gracias por hacer mi vida más hermosa, de felicidad y de amor')">te amo &lt;3</button>
+
+  <div id="mensaje"></div>
+
+  <img id="imagen" src="corazon.png" alt="te amo" class="pulse-animation">
+
+  <div class="mensaje-personal">
     Nunca en mi vida me imaginé haciendo esto, lo hago porque realmente estoy demasiada enamorada de ti.
-<div>&nbsp;</div>
-No existen palabras suficientes para expresar todo lo que siento por ti, pero permíteme seguirte demostrando todo lo que soy capaz por ti.
-<div>&nbsp;</div>
-Desde el momento en que nuestros caminos se cruzaron, mi vida cobró un color que nunca había conocido. 
-Tu presencia calma mis miedos y da luz a mis días más oscuros. 
-<div>&nbsp;</div>
-Junto a ti, cada día se convierte en una aventura emocionante, y cada desafío se transforma en una oportunidad para fortalecer nuestra relación
-<div>&nbsp;</div>
-Te prometo amarte en cada momento, celebrando las alegrías y enfrentando los desafíos juntas. Me siento feliz de compartir cada instante contigo. 
-<div>&nbsp;</div>
-Eres esa persona a la que amo y deseo con todo mi corazón, con la esperanza de que siempre estés conmigo.
-<div>&nbsp;</div>
-Te admiro profundamente por ser la increíble persona que eres
-<div>&nbsp;</div>
-Tu bondad, tu fortaleza, tu belleza tanto interior como exterior, tu inteligencia y todo lo que te hace única. Te amo muchísimo, amor.
-<div>&nbsp;</div>
- Te prometo amarte en cada uno de ellos, celebrando los momentos felices y enfrentando juntas los desafíos,
- <div>&nbsp;</div>
- y de verdad me siento muy feliz por de compartir cada día a tu lado y por hacerlos especial 
- <div>&nbsp;</div>
- eres esa personita que amo y desea con todo mi corazon con que estes conmigo siempre, 
- solo quiero que seas tu en mi vida.
- <div>&nbsp;</div>
-y te amo mucho amor, muchisimo <3
-<div>&nbsp;</div>
+    <br><br>
+    No existen palabras suficientes para expresar todo lo que siento por ti, pero permíteme seguirte demostrando todo lo que soy capaz por ti.
+    <br><br>
+    Desde el momento en que nuestros caminos se cruzaron, mi vida cobró un color que nunca había conocido. Tu presencia calma mis miedos y da luz a mis días más oscuros.
+    <br><br>
+    Junto a ti, cada día se convierte en una aventura emocionante, y cada desafío se transforma en una oportunidad para fortalecer nuestra relación.
+    <br><br>
+    Te prometo amarte en cada momento, celebrando las alegrías y enfrentando los desafíos juntas. Me siento feliz de compartir cada instante contigo.
+    <br><br>
+    Eres esa persona a la que amo y deseo con todo mi corazón, con la esperanza de que siempre estés conmigo.
+    <br><br>
+    Te admiro profundamente por ser la increíble persona que eres. Tu bondad, tu fortaleza, tu belleza tanto interior como exterior, tu inteligencia y todo lo que te hace única. Te amo muchísimo, amor.
+    <br><br>
+    Me siento muy feliz de compartir cada día a tu lado y por hacerlos especial. Eres esa personita que amo y deseo con todo mi corazón. Quiero que seas tú en mi vida, siempre.
+    <br><br>
+    Te amo mucho, amor, muchísimo &lt;3<br><br>
+    Eres mi amor, mi razón de ser y la mujer que se quede conmigo el resto de la vida.
+  </div>
 
-Eres mi amor, mi razón de ser y la mujer que se quede conmigo el resto de la vidad.
- <div>&nbsp;</div>
+  <iframe src="pagina-de-mi-amor-main/200razones/index.html" width="70%" height="800"></iframe>
+  <iframe src="pagina-de-mi-amor-main/sofigame/index.html" width="70%" height="800"></iframe>
+  <iframe src="pagina-de-mi-amor-main/Mundo-invertido-main/Index.html" width="70%" height="800"></iframe>
+  <iframe src="pagina-de-mi-amor-main/pacman-main/pacman.html" width="70%" height="800"></iframe>
+  <embed src="pagina-de-mi-amor-main/amor.pdf" width="70%" height="780" type="application/pdf" />
 
-<div>
-<script src=""></script>
-</div>
- <div>&nbsp;</div>
-<div>
-    <iframe src="pagina-de-mi-amor-main/200razones/index.html" width="45%" height="600" style="border:none;"></iframe>
+  <script>
+    function mostrarMensaje(mensaje) {
+      document.getElementById('mensaje').innerHTML = mensaje;
+      document.getElementById('imagen').src = 'corazon.png';
+    }
 
-</div>
- <div>&nbsp;</div>
-<div>
-    <iframe src="pagina-de-mi-amor-main/sofigame/index.html" width="45%" height="600" style="border:none;"></iframe>
-</div>
-	  <div>&nbsp;</div>
-</center>
+    // Generador de flores
+    const petalContainer = document.getElementById('petals-container');
+    const flowerEmoji = ['🌸','🌺','🌷','💐','🌼'];
 
- <div>&nbsp;</div>
-<center> 
+    function createPetal() {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.innerText = flowerEmoji[Math.floor(Math.random() * flowerEmoji.length)];
+      petal.style.left = Math.random() * 100 + 'vw';
+      petal.style.animationDuration = (3 + Math.random() * 5) + 's';
+      petal.style.opacity = Math.random();
+      petal.style.fontSize = (20 + Math.random() * 20) + 'px';
+      petalContainer.appendChild(petal);
 
-<embed src="pagina-de-mi-amor-main/amor.pdf" width="45%" height="600" type="application/pdf"
+      setTimeout(() => {
+        petal.remove();
+      }, 8000);
+    }
 
- <div>&nbsp;</div>
- 
-</center>
-    <script>
-        function mostrarMensaje(mensaje) {
-            document.getElementById('mensaje').innerHTML = mensaje;
-            document.getElementById('imagen').src = 'corazon.png'; // Cambia la imagen
-        }
-    </script>
+    setInterval(createPetal, 300);
+  </script>
 
 </body>
 </html>
