@@ -9,17 +9,17 @@
 
   <style>
     body {
-        font-family: 'Quicksand', sans-serif;
+      font-family: 'Quicksand', sans-serif;
       text-align: center;
       margin: 0;
       padding: 20px;
-      background: #fce4ec;
-      color: #4a4a4a;
+      background: linear-gradient(to bottom, #102542, #0d1b2a);
+      color: #e3f2fd;
       overflow-x: hidden;
     }
 
     h1 {
-      color: #c2185b;
+      color: #e3f2fd;
       margin-bottom: 30px;
       font-size: 2.5em;
     }
@@ -29,8 +29,8 @@
       font-size: 16px;
       margin: 10px;
       cursor: pointer;
-      background-color: #f8bbd0;
-      color: #880e4f;
+      background-color: #1565c0;
+      color: white;
       border: none;
       border-radius: 8px;
       transition: background-color 0.3s ease;
@@ -39,7 +39,7 @@
     }
 
     button:hover {
-      background-color: #f48fb1;
+      background-color: #1e88e5;
     }
 
     #mensaje {
@@ -77,18 +77,18 @@
     }
 
     .mensaje-personal {
-        font-family: 'Quicksand', sans-serif;
       font-size: 24px;
       max-width: 800px;
       margin: 30px auto;
       line-height: 1.8;
       text-align: justify;
-      background-color: #fff0f5;
+      background-color: rgba(255, 255, 255, 0.05);
       padding: 25px;
       border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 10px rgba(255,255,255,0.1);
       position: relative;
       z-index: 2;
+      color: #ffffff;
     }
 
     audio {
@@ -97,7 +97,6 @@
       z-index: 2;
     }
 
-    /* Fondo con flores animadas */
     .flower-petals {
       position: fixed;
       top: 0;
@@ -111,25 +110,33 @@
 
     .petal {
       position: absolute;
-      font-size: 24px;
-      animation: fall linear infinite;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: radial-gradient(circle, #42a5f5 0%, #1e88e5 90%);
+      opacity: 0.9;
+      animation: fall linear forwards, twinkle 2s ease-in-out infinite;
+      pointer-events: none;
     }
 
     @keyframes fall {
       0% {
-        transform: translateY(-10%) rotate(0deg);
-        opacity: 1;
+        top: -20px;
       }
       100% {
-        transform: translateY(110vh) rotate(360deg);
+        top: 110vh;
         opacity: 0;
       }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.7; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.4); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Fondo animado de pétalos de flores -->
   <div class="flower-petals" id="petals-container"></div>
 
   <audio controls>
@@ -148,7 +155,7 @@
   <img id="imagen" src="corazon.png" alt="te amo" class="pulse-animation">
 
   <div class="mensaje-personal">
-    Nunca en mi vida me imaginé haciendo esto, lo hago porque realmente estoy demasiada enamorada de ti.
+    Nunca en mi vida me imaginé haciendo esto, lo hago porque realmente estoy demasiado enamorada de ti.
     <br><br>
     No existen palabras suficientes para expresar todo lo que siento por ti, pero permíteme seguirte demostrando todo lo que soy capaz por ti.
     <br><br>
@@ -180,23 +187,19 @@
       document.getElementById('imagen').src = 'corazon.png';
     }
 
-    // Generador de flores
     const petalContainer = document.getElementById('petals-container');
-    const flowerEmoji = ['🌸','🌺','🌷','💐','🌼'];
 
     function createPetal() {
       const petal = document.createElement('div');
       petal.classList.add('petal');
-      petal.innerText = flowerEmoji[Math.floor(Math.random() * flowerEmoji.length)];
       petal.style.left = Math.random() * 100 + 'vw';
-      petal.style.animationDuration = (3 + Math.random() * 5) + 's';
-      petal.style.opacity = Math.random();
-      petal.style.fontSize = (20 + Math.random() * 20) + 'px';
+      petal.style.animationDuration = (6 + Math.random() * 4) + 's';
+      petal.style.top = '-20px';
       petalContainer.appendChild(petal);
 
       setTimeout(() => {
         petal.remove();
-      }, 8000);
+      }, 12000);
     }
 
     setInterval(createPetal, 300);
@@ -204,3 +207,4 @@
 
 </body>
 </html>
+
