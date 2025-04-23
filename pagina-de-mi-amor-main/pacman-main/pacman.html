@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pacman</title>
+      <!-- Fuente retro estilo Pac-Man -->
+  <link href="https://fonts.cdnfonts.com/css/emulogic" rel="stylesheet" />
+
+    <style>
+        body {
+            margin: 0;
+      background-color: black;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Emulogic', sans-serif;
+        }
+
+        #canvas {
+            display: block;
+        }
+
+        #startBtn {
+            position: absolute;
+            z-index: 10;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-family: sans-serif;
+            background-color: yellow;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 0 10px yellow;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="canvas" width="500" height="500"></canvas>
+
+    <!-- Botón para iniciar el juego -->
+    <button id="startBtn">Iniciar Juego</button>
+
+    <!-- imágenes ocultas para animaciones -->
+    <div style="display:none;">
+        <img id="animation" src="animations.gif" width="140" height="20">
+        <img id="ghosts" src="ghost.png" width="140" height="20">
+    </div>
+
+    <!-- scripts del juego -->
+    <script src="ghost.js"></script>
+    <script src="pacman.js"></script>
+    <script src="game.js"></script>
+
+    <!-- script para activar el botón -->
+    <script>
+        const startButton = document.getElementById('startBtn');
+
+        startButton.addEventListener('click', () => {
+            startButton.style.display = 'none';
+            iniciarJuego();
+        });
+
+        function iniciarJuego() {
+            if (typeof startGame === 'function') {
+                startGame();
+            } else {
+                console.log("⚠️ No se encontró la función startGame().");
+            }
+        }
+    </script>
+</body>
+
+</html>
+
+
